@@ -1,0 +1,36 @@
+---
+title: "About Yall Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: readable
+    number_section: false
+    css: watermark-css.css
+    highlight: pygments
+---
+
+Dengan ini kita bisa belajar tengtang menambahkan watermark pada halaman web dan pada gambar di RStudio RMarkdown.
+<br> Terimakasih sudah berkunjung :)
+<br> Semoga Bermanfaat
+
+# Tentang penulis
+Saya, Firyal Nabila Zalfa
+<br> Mahasiswi Teknik Informatika 
+<br> UIN Maulana Malik Ibrahim Malang
+
+![](https://scontent-sin6-3.cdninstagram.com/v/t51.2885-15/e35/s320x320/116241180_124061159376618_5772715998974156565_n.jpg?tp=1&_nc_ht=scontent-sin6-3.cdninstagram.com&_nc_cat=106&_nc_ohc=WVj49rJug2UAX-WFcy2&edm=ABfd0MgAAAAA&ccb=7-4&oh=3460df1e85c8b51bf2ad977754b1c67b&oe=60ACFC9C&_nc_sid=7bff83)
+
+# Ucapan terimakasih
+Saya ucapkan terimakasih kepada dosen pengampu atas bimbingannya.
+<br> Prof. Dr. Suhartono, M.Kom
+```{r include=FALSE}
+library(EBImage)
+```
+```{r echo=FALSE}
+Image1 <- readImage("C:/Users/ASUS/OneDrive/Pictures/pa suhartono.jpg")
+display(Image1)
+```
+
+<dic class="watermark"><img src="https://pbs.twimg.com/profile_images/513907821113389056/zU9lKbuT_400x400.jpeg"></div>

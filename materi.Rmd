@@ -1,0 +1,96 @@
+---
+title: "Penambahan Watermark Pada RStudio RMarkdown"
+author: "Firyal Nabila Zalfa <br> UIN Maulana Malik Ibrahim Malang"
+date: "26 April 2021"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: readable
+    number_section: false
+    css: watermark-css.css
+    highlight: pygments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, eval = TRUE)
+```
+
+# What is Watermark?
+Watermark atau tanda air adalah sebuah tanda baik berupa tulisan maupun gambar logo yang tertanam pada foto atau gambar digital. Tanda ini biasanya memberikan informasi kepada orang lain bahwa foto tersebut adalah hasil karya miliknya. 
+<br>Watermark biasanya terletak pada bagian kiri atau kanan dari foto. Tidak hanya pada foto watermark juga bisa pada sebuah website, seperti yang sekarang kita lakukan. Kali ini kita akan membuat watermark pada RMarkdown.
+
+# Cara Menambahkan Watermark Pada halaman Web RMarkdown
+Untuk menambahkan watermark pada halaman web kita harus membuat file `.css` untuk mengatur letak dan transparisasi watermark. pada file `.css` berisi source code sebagai berikut:
+
+    .watermark {
+      opacity: 0.2;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      font-size: 100%;
+      color: #00407d;
+    }
+
+Setelah kita membuat file `.css`, selanjutnya kita membuat file `.Rmd` untuk menambahkan watermark pada halaman web, kita bisa menambahkannya dengan menulis source code pada file `.Rmd`. Waterwark dapat berupa tulisan maupun gambar. 
+<br> Untuk tulisan source code-nya seperti berikut:
+
+    <div class="watermark">INI WATERMARK</div>
+<br> Untuk gambar source code-nya seperti berikut:
+
+    <div class="watermark"><img src="..."></div>
+    
+Setelah membuat file `.css` dan `.Rmd`, selanjutnya menghubungkan kedua file tersebut dengan source code berikut:
+
+    ---
+    title: "..."
+    author: "..."
+    date: "..."
+    output: 
+      html_document:
+      css: watermark-css.css
+    ---
+
+# Cara Menambahkan Watermark Pada Gambar
+Untuk menambahkan watermark pada gambar, pastikan dulu kita sudah menginstal package EBImage di RStudio. Untuk menginstalnya dengan menuliskan source code pada console:
+
+    if(!requireNamespace("BiocManager", quietly = TRUE))
+        install.packages("BiocManager")
+        
+        BiocManager::install("EbImage")
+        
+Setelah selesai diinstal, selanjutnya kita memanggil library EBImage untuk memastikan bahwa package EBImage sudah terpasang di RStudio. Jika tidak menampilkan apa-apa/kosong itu menandakan bahwa package EBImage sudah siap/terpasang di RStudio kita. Untuk memanggil library EBImage dengan menuliskan source code berikut:
+```{r echo=TRUE}
+library(EBImage)
+```
+
+Untuk mengimport gambar pastikan bahwa lokasi gambar yang ada pada device kita sesuai, dan ubah tanda \ menjadi / seperti source code berikut:
+```{r echo=TRUE}
+Image <- readImage("C:/Users/ASUS/OneDrive/Pictures/kampusUIN.jpg")
+display(Image)
+```
+
+Untuk melihat data dari gambar menggunakan print(Image). Pada source code ini akan menampilkan sifat gambar, nilai-nilai piksel, dan informasi lainnya.
+```{r echo=TRUE}
+print(Image)
+```
+
+Untuk melihat histogram dari gambar menggunakan hist(Image) seperti source code berikut:
+```{r echo=TRUE}
+hist(Image)
+```
+
+Dan untuk menambahkan watermark pada gambar berupa tulisan, dengan source code berikut:
+```{r echo=TRUE}
+display(Image, method="raster")
+text(x = 20, y = 20, label = "UIN Maulana Malik Ibrahim Malang", adj = c(0,1), col = "white", cex = 2)
+```
+
+Dengan adanya watermark kita bisa tahu hasil karya kita sendiri agar tidak mudah dijiplak oleh orang lain.
+
+# Daftar Pustaka
+http://freerangestats.info/blog/2017/09/09/rmarkdown
+
+<dic class="watermark"><img src="https://pbs.twimg.com/profile_images/513907821113389056/zU9lKbuT_400x400.jpeg"></div>
+

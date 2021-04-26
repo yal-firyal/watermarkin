@@ -1,0 +1,21 @@
+---
+title: "Penambahan Watermark Pada RStudio RMarkdown"
+author: "Firyal Nabila Zalfa <br> UIN Maulana Malik Ibrahim Malang"
+date: "26 April 2021"
+output: 
+  html_document:
+    toc: true
+    theme: readable
+    number_section: false
+    css: watermark-css.css
+    highlight: pygments
+---
+
+Kembali lagi dengan Yall Website
+<br> Kali ini kita akan menambahkan watermark pada gambar di RMarkdown.
+
+>> Untuk memulainya silahkan ke halaman Program
+
+![](https://www.soalumptkin.com/wp-content/uploads/2019/02/pendaftaran-2Buin-2Bmalang-2B2019-2Bspan-2Bptkin-2Bum-2Bptkin-2Bsnmptn-2Bsbmptn-2Bmandiri-2Bjurusan-2Bprodi-2Bdaya-2Btampung-2Bkuota-2Bpassing-2Bgrade-2Bnilai-2Brata-rata-2Bukt-2Bbeasiswa.jpg)
+
+<dic class="watermark"><img src="https://pbs.twimg.com/profile_images/513907821113389056/zU9lKbuT_400x400.jpeg"></div>
